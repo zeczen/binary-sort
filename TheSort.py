@@ -1,7 +1,7 @@
 def lion_sort(lst):
     for key in range(1, len(lst)):
         organ = lst.pop(key)
-        location = lion_speak1(lst[:key], organ, key // 2)
+        location = lion_speak(lst[:key], organ, key // 2)
         lst.insert(location, organ)
 
     return lst
