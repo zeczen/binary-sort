@@ -1,31 +1,36 @@
+
 def lion_sort(lst):
     for key in range(1, len(lst)):
-        organ = lst.pop(key)
-        location = lion_speak(lst[:key], organ, key // 2)
-        lst.insert(location, organ)
+        element = lst.pop(key)
+        location = binaryInsert(lst[:key], element)
+        lst.insert(location, element)
 
     return lst
-    
-    
-def lion_speak(lst, search, count):
+
+
+def binaryInsert(lst, search):
     length = len(lst)
-    # search for the location of 'search'
-    while length >= 2:
-        index = length // 2
-        mid = lst[index]
-        if mid < search:
-            lst = lst[index + 1:]
-            count += ((length + 3) // 4)
-            length = len(lst)
-            continue
-        elif mid > search:
-            lst = lst[:index]
-            count -= ((length + 2) // 4)
-            length = len(lst)
-            continue
-        elif mid == search:
-            return count
-    if length == 1:
-        if lst[0] < search:
-            return count + 1
-    return count
+    right = length - 1
+    left = 0
+    mid = length // 2
+    while right > left:
+
+        if lst[mid] > search:
+            right = mid - 1
+            mid = (right + left) // 2
+
+        elif lst[mid] < search:
+            left = mid + 1
+            mid = (right + left) // 2
+
+        elif lst[mid] == search:
+            return mid
+
+    if (right <= left):
+        if mid < 0: return 0
+        if lst[mid] < search:
+            return mid + 1
+        if left == right and lst[mid - 1] < search < lst[mid]:
+            return mid
+
+    return mid
