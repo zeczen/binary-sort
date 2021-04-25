@@ -2,13 +2,13 @@
 def lion_sort(lst):
     for key in range(1, len(lst)):
         element = lst.pop(key)
-        location = binaryInsert(lst[:key], element)
+        location = _binaryInsert(lst[:key], element)
         lst.insert(location, element)
 
     return lst
 
 
-def binaryInsert(lst, search):
+def _binaryInsert(lst, search):
     length = len(lst)
     right = length - 1
     left = 0
