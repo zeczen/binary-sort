@@ -1,5 +1,5 @@
 
-def lion_sort(lst):
+def binary_sort(lst):
     for key in range(1, len(lst)):
         element = lst.pop(key)
         location = _binaryInsert(lst[:key], element)
