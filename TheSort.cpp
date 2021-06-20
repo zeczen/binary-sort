@@ -29,7 +29,7 @@ int _binaryInsert(vector<T> arr, int size, T search) {
 }
 
 template<typename T>
-vector<T> lion_sort(vector<T> arr) {
+vector<T> binary_sort(vector<T> arr) {
     int i, loc;
     T element;
     vector<T> vec;
